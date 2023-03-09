@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Currency conversion</title>
+</head>
+<body>
+<table width="500" style="text-align: center">
+    <tr>
+        <th>Amount</th>
+        <th>From Currency</th>
+        <th>To Currency</th>
+        <th></th>
+    </tr>
+    <tr>
+        <td><input type="text" id="amount"></td>
+        <td><select name="from" id="fr">
+            <option value="currency">USD</option>
+            </select>
+        </td>
+        <td><select name="to" id="to">
+            <option value="currency">VNĐ</option>
+            </select>
+        </td>
+        <td>
+            <button onclick="convert()">Convert</button></td>
+    </tr>
+</table>
+<p id="vnd"></p>
+<script>
+    function convert() {
+        let a = parseInt(document.getElementById('amount').value);
+        let b = 23000 * a;
+        document.getElementById('vnd').innerHTML = "Result: " + b + " đồng";
+
+    }
+</script>
+</body>
+</html>
