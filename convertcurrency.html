@@ -15,24 +15,35 @@
     <tr>
         <td><input type="text" id="amount"></td>
         <td><select name="from" id="fr">
-            <option value="currency">USD</option>
+            <option value="USD">USD</option>
+            <option value="VND">VNĐ</option>
             </select>
         </td>
         <td><select name="to" id="to">
-            <option value="currency">VNĐ</option>
+            <option value="VND">VNĐ</option>
+            <option value="USD">USD</option>
             </select>
         </td>
         <td>
             <button onclick="convert()">Convert</button></td>
     </tr>
 </table>
-<p id="vnd"></p>
+<p id="result"></p>
 <script>
     function convert() {
-        let a = parseInt(document.getElementById('amount').value);
-        let b = 23000 * a;
-        document.getElementById('vnd').innerHTML = "Result: " + b + " đồng";
-
+        let amount = parseInt(document.getElementById('amount').value);
+        let frc = document.getElementById('fr').value;
+        let toc = document.getElementById('to').value;
+        let result;
+        if (frc === 'USD' && toc === 'VND') {
+            result = amount * 23000;
+        } else if (frc === 'VND' && toc === 'USD') {
+            result = amount / 23000;
+        } else if (frc === 'USD' && toc === 'USD') {
+            result = amount;
+        } else
+            result = amount;
+        document.getElementById('result').innerHTML = "Result: " + result;
     }
 </script>
 </body>
